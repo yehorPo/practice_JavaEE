@@ -41,6 +41,6 @@ public class CRC16 {
         return (short) crc;
 
     }
-
-
 }
+
+
