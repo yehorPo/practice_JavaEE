@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35bc6f9-dfc9-4b35-b5e9-3c6a622a578b" name="Default Changelist" comment="add packet, crc16, message and class for encription and decryption">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CRC16.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Cryptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Packet.java" beforeDir="false" />
-    </list>
+    <list default="true" id="b35bc6f9-dfc9-4b35-b5e9-3c6a622a578b" name="Default Changelist" comment="add packet, crc16, message and class for encription and decryption" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,25 +35,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/homework2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -76,6 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622377160899</updated>
       <workItem from="1622377162990" duration="3129000" />
+      <workItem from="1622381289518" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary="add packet, crc16, message and class for encription and decryption">
       <created>1622380159863</created>
@@ -100,6 +77,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add packet, crc16, message and class for encription and decryption" />
