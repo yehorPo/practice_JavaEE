@@ -19,7 +19,7 @@ public class Packet {
         this.bSrc = bSrc;
         this.bPktId = bPktId;
         this.bMsq = bMsq;
-        wLen = bMsq.fullMessageBytesLength();
+        wLen = bMsq.getLength();
     }
     public Packet(byte[] encodedPacket) throws BadPaddingException, IllegalBlockSizeException {
         ByteBuffer buffer = ByteBuffer.wrap(encodedPacket);
@@ -35,7 +35,7 @@ public class Packet {
         byte[] messageBody = new byte[wLen-8];
         buffer.get(messageBody);
         wCrc16_2 = buffer.getShort();
-        bMsq.setEncryptedMessageInBytes(messageBody);
+        bMsq.setMBytes(messageBody);
         bMsq.decode();
         byte[] messageToEvaluate = new byte[wLen];
         System.arraycopy(encodedPacket, 16, messageToEvaluate, 0, wLen);
@@ -50,9 +50,9 @@ public class Packet {
                 .putInt(wLen)
                 .array();
         wCrc16_1 = CRC16.evaluateCrc(header, 0, 14);
-        Integer packetBody = message.fullMessageBytesLength();
+        Integer packetBody = message.getLength();
         byte[] packetPartSecond = ByteBuffer.allocate(packetBody)
-                .put(message.toPacketPart())
+                .put(message.inPacket())
                 .array();
         wCrc16_2 = CRC16.evaluateCrc(packetPartSecond, 0, packetPartSecond.length);
         Integer packetLength = 14 + wCrc16_1.BYTES + packetBody + wCrc16_2.BYTES;

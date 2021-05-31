@@ -26,10 +26,8 @@ public class ClientHandler implements Runnable {
                 byte[] packetBytes = network.receive();
                 handlePacketBytes(Arrays.copyOf(packetBytes, packetBytes.length));
             }
-
         } catch (IOException e) {
             if (e.getMessage().equals("Stream closed.")) {
-                //todo notify client?
             } else {
                 e.printStackTrace();
             }
@@ -43,10 +41,8 @@ public class ClientHandler implements Runnable {
             shutdown();
         }
     }
-
     private void handlePacketBytes(byte[] packetBytes) {
         CompletableFuture.supplyAsync(() -> {
-            //to encode in parallel thread todo non synchronized decryption
             Packet packet = null;
             try {
                 packet = new Packet(packetBytes);
@@ -57,55 +53,37 @@ public class ClientHandler implements Runnable {
             }
             return packet;
         }, executor)
-
                 .thenAcceptAsync((inputPacket -> {
                     Packet answerPacket = null;
                     try {
-                        answerPacket = Processor.process(inputPacket);
+                        answerPacket = ProcessHandler.process(inputPacket);
                     } catch (BadPaddingException e) {
-                        e.printStackTrace();
-                        System.out.println("BadPaddingException");
                     } catch (IllegalBlockSizeException e) {
-                        e.printStackTrace();
-                        System.out.println("IllegalBlockSizeException");
                     } catch (NullPointerException e) {
-                        e.printStackTrace();
-                        System.out.println("null");
                     }
-
                     try {
                         network.send(answerPacket.toPacket());
                     } catch (IOException e) {
-                        e.printStackTrace();
                     }
                 }), executor)
-
-                .exceptionally(ex -> {
-                    ex.printStackTrace();
-                    return null;
-                });
+                .exceptionally(ex -> null);
     }
     public void shutdown() {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
         }
         try {
             if (inputStream.available() > 0) {
-                Thread.sleep(5000);
+                Thread.sleep(3000);
             }
             inputStream.close();
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-
         } finally {
-
             if (executor.getActiveCount() > 0) {
                 try {
                     executor.awaitTermination(2, TimeUnit.MINUTES);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
             }
             executor.shutdown();
@@ -116,10 +94,7 @@ public class ClientHandler implements Runnable {
                     clientSocket.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
             }
         }
     }
-
-
 }
