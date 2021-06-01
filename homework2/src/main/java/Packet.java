@@ -21,7 +21,6 @@ public class Packet {
     }
     public Packet(byte[] encodedPacket)throws BadPaddingException, IllegalBlockSizeException {
         ByteBuffer buffer = ByteBuffer.wrap(encodedPacket);
-        Byte expectedBMagic = buffer.get();
         bSrc = buffer.get();
         bPktId = buffer.getLong();
         wLen = buffer.getInt();
