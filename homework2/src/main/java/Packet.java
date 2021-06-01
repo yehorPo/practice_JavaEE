@@ -12,9 +12,6 @@ public class Packet {
     public Message getBMsq() {
         return bMsq;
     }
-    public void setBMsq(Message bMsq) {
-        this.bMsq = bMsq;
-    }
     public Packet(Byte bSrc, Long bPktId, Message bMsq) {
         this.bSrc = bSrc;
         this.bPktId = bPktId;
@@ -23,12 +20,10 @@ public class Packet {
     }
     public Packet(byte[] encodedPacket) throws BadPaddingException, IllegalBlockSizeException {
         ByteBuffer buffer = ByteBuffer.wrap(encodedPacket);
-        Byte expectedBMagic = buffer.get();
         bSrc = buffer.get();
         bPktId = buffer.getLong();
         wLen = buffer.getInt();
         wCrc16_1 = buffer.getShort();
-        final short crc16header = CRC16.evaluateCrc(encodedPacket, 0, 14);
         bMsq = new Message();
         bMsq.setCType(buffer.getInt());
         bMsq.setBUserId(buffer.getInt());
@@ -39,7 +34,6 @@ public class Packet {
         bMsq.decode();
         byte[] messageToEvaluate = new byte[wLen];
         System.arraycopy(encodedPacket, 16, messageToEvaluate, 0, wLen);
-        final short crc16message = CRC16.evaluateCrc(messageToEvaluate, 0, wLen);
     }
     public byte[] toPacket() {
         Message message = getBMsq();

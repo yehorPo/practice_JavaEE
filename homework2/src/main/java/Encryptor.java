@@ -3,7 +3,7 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 public class Encryptor {
-    private static String generateKey = "QWErty";
+    private static String generateKey = "DESede";
     private static Key key;
     private static Cipher cipher;
     static {

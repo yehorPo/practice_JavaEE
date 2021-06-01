@@ -6,13 +6,13 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.*;
-public class ClientHandler implements Runnable {
+public class SenderHandler implements Runnable {
     private Socket clientSocket;
     private OutputStream outputStream;
     private InputStream inputStream;
     private Network network;
     private ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(3);
-    public ClientHandler(Socket clientSocket, int maxTimeout, TimeUnit timeUnit) throws IOException {
+    public SenderHandler(Socket clientSocket, int maxTimeout, TimeUnit timeUnit) throws IOException {
         this.clientSocket = clientSocket;
         inputStream = clientSocket.getInputStream();
         outputStream = clientSocket.getOutputStream();
@@ -20,7 +20,7 @@ public class ClientHandler implements Runnable {
     }
     @Override
     public void run() {
-        Thread.currentThread().setName(Thread.currentThread().getName() + " - ClientHandler");
+        Thread.currentThread().setName(Thread.currentThread().getName() + " - SenderHandler");
         try {
             while (true) {
                 byte[] packetBytes = network.receive();

@@ -10,14 +10,8 @@ public class Message {
     public void setMBytes(byte[] encryptedMessageInBytes) {
         this.mBytes = encryptedMessageInBytes;
     }
-    public byte[] getMBytes() {
-        return mBytes;
-    }
     public String getMessage() {
         return message;
-    }
-    public int getBUserId() {
-        return bUserId;
     }
     public void setBUserId(int bUserId) {
         this.bUserId = bUserId;
@@ -55,8 +49,5 @@ public class Message {
     }
     public void setCType(int cType) {
         this.cType = cType;
-    }
-    public int getCType() {
-        return cType;
     }
 }

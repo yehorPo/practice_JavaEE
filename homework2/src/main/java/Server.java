@@ -7,17 +7,15 @@ import java.util.concurrent.TimeUnit;
 public class Server extends Thread {
     public ServerSocket server;
     private ThreadPoolExecutor executor = (ThreadPoolExecutor)Executors.newFixedThreadPool(10);
-    private int port;
     public Server(int port) throws IOException {
         super("Server");
-        this.port = port;
         server = new ServerSocket(port);
     }
     @Override
     public void run() {
         try {
             while (true) {
-                executor.execute(new ClientHandler(server.accept(), 2, TimeUnit.SECONDS));
+                executor.execute(new SenderHandler(server.accept(), 2, TimeUnit.SECONDS));
             }
         } catch (SocketException e) {
         } catch (IOException e) {
