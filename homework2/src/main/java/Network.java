@@ -28,7 +28,6 @@ public class Network {
     public Network(InputStream inputStream, OutputStream outputStream, int maxTimeout, TimeUnit timeUnit) {
         this.inputStream = inputStream;
         this.outputStream = new BufferedOutputStream(outputStream);
-
         this.maxTimeout = Math.max(maxTimeout, 0);
         this.timeUnit = timeUnit;
     }
@@ -54,7 +53,7 @@ public class Network {
         synchronized (inputStreamLock) {
             int    wLen    = 0;
             byte[] oneByte = new byte[1];
-            byte[] packetBytes = null;
+            byte[] packetBytes;
             boolean newData = true;
             while (true) {
                 if (inputStream.available() == 0) {
@@ -62,7 +61,6 @@ public class Network {
                         throw new TimeoutException();
                     }
                     newData = false;
-
                     try {
                         timeUnit.sleep(maxTimeout);
                     } catch (InterruptedException e) {

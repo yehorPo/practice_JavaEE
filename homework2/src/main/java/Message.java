@@ -6,21 +6,9 @@ public class Message {
     Integer cType;
     Integer bUserId;
     String message;
-    private byte[] mBytes;
-    public void setMBytes(byte[] encryptedMessageInBytes) {
-        this.mBytes = encryptedMessageInBytes;
-    }
-    public byte[] getMBytes() {
-        return mBytes;
-    }
-    public String getMessage() {
-        return message;
-    }
-    public int getBUserId() {
-        return bUserId;
-    }
-    public void setBUserId(int bUserId) {
-        this.bUserId = bUserId;
+    private byte[] bytes;
+    public void setCType(int cType) {
+        this.cType = cType;
     }
     public Message() { }
     public Message(cTypes cType, Integer bUserId, String message) throws BadPaddingException, IllegalBlockSizeException {
@@ -29,34 +17,40 @@ public class Message {
         this.message = message;
         encode();
     }
-    public byte[] inPacket() {
-        return ByteBuffer.allocate(getLength())
+    public void setBUserId(int bUserId) {
+        this.bUserId = bUserId;
+    }
+    public String getMessage() {
+        return message;
+    }
+    public void setBytes(byte[] bytes) {
+        this.bytes = bytes;
+    }
+    public byte[] toPacketPart() {
+        return ByteBuffer.allocate(mLength())
                 .putInt(cType)
                 .putInt(bUserId)
-                .put(mBytes).array();
+                .put(bytes).array();
     }
-    public int getLength() {return mBytes.length + Integer.BYTES + Integer.BYTES; }
+    public int mLength() {return bytes.length + Integer.BYTES + Integer.BYTES; }
     public void encode() throws BadPaddingException, IllegalBlockSizeException {
+
         byte[] myMes = message.getBytes(StandardCharsets.UTF_8);
-        mBytes = Encryptor.encryptMessage(myMes);
+        bytes = Encryptor.code(myMes);
     }
     public void decode() throws BadPaddingException, IllegalBlockSizeException{
-        byte[] decryptedMessage = Encryptor.decryptMessage(mBytes);
+        byte[] decryptedMessage = Encryptor.decode(bytes);
         message = new String(decryptedMessage);
     }
     public enum cTypes {
-        getNumber,
+        amount,
         getProduct,
         addProduct,
-        addProductInStore,
-        setPrice,
+        getGrope,
+        addGrope,
+        setProduct,
         errors,
         ok
     }
-    public void setCType(int cType) {
-        this.cType = cType;
-    }
-    public int getCType() {
-        return cType;
-    }
+
 }

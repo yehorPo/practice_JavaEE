@@ -3,7 +3,7 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 public class Encryptor {
-    private static String generateKey = "QWErty";
+    private static String generateKey = "DESede";
     private static Key key;
     private static Cipher cipher;
     static {
@@ -17,7 +17,7 @@ public class Encryptor {
         } catch (NoSuchPaddingException e) {
         }
     }
-    public synchronized static byte[] encryptMessage(final byte[] message) throws BadPaddingException, IllegalBlockSizeException {
+    public synchronized static byte[] code(final byte[] message) throws BadPaddingException, IllegalBlockSizeException {
         try {
             cipher.init(Cipher.ENCRYPT_MODE, key);
 
@@ -25,7 +25,7 @@ public class Encryptor {
         }
         return cipher.doFinal(message);
     }
-    public synchronized static byte[] decryptMessage(final byte[] message) throws BadPaddingException, IllegalBlockSizeException {
+    public synchronized static byte[] decode(final byte[] message) throws BadPaddingException, IllegalBlockSizeException {
         try {
             cipher.init(Cipher.DECRYPT_MODE, key);
         } catch (InvalidKeyException e) {

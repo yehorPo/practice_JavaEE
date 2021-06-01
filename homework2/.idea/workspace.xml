@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35bc6f9-dfc9-4b35-b5e9-3c6a622a578b" name="Default Changelist" comment="add first version of main, client, server, minor crc16 bug fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Network.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ProcessHandler.java" afterDir="false" />
+    <list default="true" id="b35bc6f9-dfc9-4b35-b5e9-3c6a622a578b" name="Default Changelist" comment="added main and sender, renamed several classes, deleted product and store classes. It even works, but mb with bugs">
+      <change afterPath="$PROJECT_DIR$/src/main/java/SenderHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Cryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Encryptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ClientHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Encryptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Network.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Packet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ProcessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ProcessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +32,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="ProjectId" id="1tFuSZwfjuXvdHT4PXqynOVhrbB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -49,25 +53,58 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="homework2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <module name="homework2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Tests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Tests" />
+        <item itemvalue="Application.Tests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,7 +116,8 @@
       <updated>1622377160899</updated>
       <workItem from="1622377162990" duration="2935000" />
       <workItem from="1622381309880" duration="1487000" />
-      <workItem from="1622451845563" duration="2064000" />
+      <workItem from="1622451845563" duration="2908000" />
+      <workItem from="1622482762612" duration="1450000" />
     </task>
     <task id="LOCAL-00001" summary="add packet, crc16, message and class for encription and decryption">
       <created>1622380159863</created>
@@ -95,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622451976044</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="a lot of bug fixes, added  test versions of Network and ProcessHandler classes for threads. Become dead inside ghoul 1000-7">
+      <created>1622454170380</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622454170380</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +161,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add packet, crc16, message and class for encription and decryption" />
     <MESSAGE value="add first version of main, client, server, minor crc16 bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="add first version of main, client, server, minor crc16 bug fixed" />
+    <MESSAGE value="a lot of bug fixes, added  test versions of Network and ProcessHandler classes for threads. Become dead inside ghoul 1000-7" />
+    <option name="LAST_COMMIT_MESSAGE" value="a lot of bug fixes, added  test versions of Network and ProcessHandler classes for threads. Become dead inside ghoul 1000-7" />
   </component>
 </project>

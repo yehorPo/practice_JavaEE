@@ -5,7 +5,7 @@ public class ProcessHandler {
         Message test = inputPacket.getBMsq();
         Message answer;
         String out;
-        out = test.getMessage() + " OK!";
+        out = test.getMessage() + " Ok";
         answer = new Message(Message.cTypes.ok, 0, out);
         Packet send = new Packet(inputPacket.bSrc, inputPacket.bPktId, answer);
         return send;

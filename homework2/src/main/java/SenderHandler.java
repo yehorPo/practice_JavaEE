@@ -6,21 +6,22 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.*;
-public class ClientHandler implements Runnable {
-    private Socket clientSocket;
+
+public class SenderHandler implements Runnable {
+    private Socket socket;
     private OutputStream outputStream;
-    private InputStream inputStream;
+    private InputStream  inputStream;
     private Network network;
-    private ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(3);
-    public ClientHandler(Socket clientSocket, int maxTimeout, TimeUnit timeUnit) throws IOException {
-        this.clientSocket = clientSocket;
+    private ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
+    public SenderHandler(Socket clientSocket, int maxTimeout, TimeUnit timeUnit) throws IOException {
+        this.socket = clientSocket;
         inputStream = clientSocket.getInputStream();
         outputStream = clientSocket.getOutputStream();
         network = new Network(inputStream, outputStream, maxTimeout, timeUnit);
     }
     @Override
     public void run() {
-        Thread.currentThread().setName(Thread.currentThread().getName() + " - ClientHandler");
+        Thread.currentThread().setName("Handler "+Thread.currentThread().getName());
         try {
             while (true) {
                 byte[] packetBytes = network.receive();
@@ -32,7 +33,6 @@ public class ClientHandler implements Runnable {
                 e.printStackTrace();
             }
         } catch (TimeoutException e) {
-            System.out.println("client timeout");
         } catch (BadPaddingException e) {
             e.printStackTrace();
         } catch (IllegalBlockSizeException e) {
@@ -66,24 +66,31 @@ public class ClientHandler implements Runnable {
                     } catch (IOException e) {
                     }
                 }), executor)
-                .exceptionally(ex -> null);
+                .exceptionally(ex -> {
+                    ex.printStackTrace();
+                    return null;
+                });
     }
     public void shutdown() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        System.out.println(Thread.currentThread().getName() + " shutdown");
         try {
             if (inputStream.available() > 0) {
-                Thread.sleep(3000);
+                Thread.sleep(5000);
             }
             inputStream.close();
         } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         } finally {
             if (executor.getActiveCount() > 0) {
                 try {
                     executor.awaitTermination(2, TimeUnit.MINUTES);
                 } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
             executor.shutdown();
@@ -91,7 +98,7 @@ public class ClientHandler implements Runnable {
                 try {
                     outputStream.close();
                 } finally {
-                    clientSocket.close();
+                    socket.close();
                 }
             } catch (IOException e) {
             }
