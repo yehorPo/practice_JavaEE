@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+
 public class Network {
     private BufferedOutputStream outputStream;
     private InputStream inputStream;
@@ -16,8 +17,9 @@ public class Network {
     private TimeUnit timeUnit;
     private ArrayList<Byte> receivedBytes = new ArrayList<>(16 * 3);
     private LinkedList<Integer> bMagicIndexes = new LinkedList<>();
-    private Object outputStreamLock = new Object();
-    private Object inputStreamLock  = new Object();
+    private final Object outputStreamLock = new Object();
+    private final Object inputStreamLock  = new Object();
+
     private byte[] byteArray(Byte[] inputArray) {
         byte[] byteArray = new byte[inputArray.length];
         for (int i = 0; i < inputArray.length; ++i) {

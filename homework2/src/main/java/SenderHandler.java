@@ -77,7 +77,7 @@ public class SenderHandler implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(Thread.currentThread().getName() + " shutdown");
+        System.out.println(Thread.currentThread().getName() + " closed");
         try {
             if (inputStream.available() > 0) {
                 Thread.sleep(5000);

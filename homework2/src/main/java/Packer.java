@@ -2,7 +2,7 @@ import javax.crypto.*;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
-public class Encryptor {
+public class Packer {
     private static String generateKey = "DESede";
     private static Key key;
     private static Cipher cipher;

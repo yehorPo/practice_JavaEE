@@ -36,10 +36,10 @@ public class Message {
     public void encode() throws BadPaddingException, IllegalBlockSizeException {
 
         byte[] myMes = message.getBytes(StandardCharsets.UTF_8);
-        bytes = Encryptor.code(myMes);
+        bytes = Packer.code(myMes);
     }
     public void decode() throws BadPaddingException, IllegalBlockSizeException{
-        byte[] decryptedMessage = Encryptor.decode(bytes);
+        byte[] decryptedMessage = Packer.decode(bytes);
         message = new String(decryptedMessage);
     }
     public enum cTypes {
