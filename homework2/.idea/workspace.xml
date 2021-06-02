@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b35bc6f9-dfc9-4b35-b5e9-3c6a622a578b" name="Default Changelist" comment="fixed all bugs(i hope so) recreated message and packet classes, add Tests">
-      <change afterPath="$PROJECT_DIR$/target/classes/Packer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Packer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SenderHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Encryptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Packet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Packet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Packet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Network.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Network.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SenderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SenderHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +98,8 @@
       <workItem from="1622451845563" duration="2908000" />
       <workItem from="1622482762612" duration="1450000" />
       <workItem from="1622560006965" duration="151000" />
-      <workItem from="1622560171583" duration="649000" />
+      <workItem from="1622560171583" duration="824000" />
+      <workItem from="1622632669038" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="add packet, crc16, message and class for encription and decryption">
       <created>1622380159863</created>
@@ -133,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622559820557</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed all bugs(i hope so) recreated message and packet classes, add Tests">
+      <created>1622560928457</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622560928457</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
